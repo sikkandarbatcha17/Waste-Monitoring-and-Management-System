@@ -5,7 +5,6 @@
 #include <BlynkSimpleEsp8266.h>
 #define TRIGGERPIN 2
 #define ECHOPIN    0
-#define minimum 8
 // You should get Auth Token in the Blynk App.
 char auth[] = "x-HTyi9DznUXHxGjpoSDzHLXMkwye7sO";
 
@@ -29,6 +28,7 @@ void setup()
 
 void loop()
 {
+  int minimum=8;
   Blynk.run();
   lcd.clear();
   lcd.print(0, 0, "Area left"); 
@@ -47,7 +47,7 @@ void loop()
   lcd.print(7, 1, distance);
   if(distance <=minimum )
   {
-    Blynk.notify("Go and pick from bin");
+    Blynk.notify("Garbage is 80% full");
   }
   delay(100);
   
